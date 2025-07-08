@@ -238,10 +238,10 @@ export default function Home() {
             <div className="experience-item">
               <div className="experience-header">
                 <div>
-                  <div className="experience-title">Software Engineer (Frontend)</div>
+                  <div className="experience-title">Fullstack Software Engineer</div>
                   <div className="experience-company">Kleren Oak</div>
                 </div>
-                <div className="experience-date">Jan 2022 – Mar 2023</div>
+                <div className="experience-date">Apr 2021 – Mar 2023</div>
               </div>
               <div className="experience-description">
                 Employed React Hooks for streamlined state management across diverse client projects, reducing code complexity by 26% and enhancing maintainability. Developed reusable React components with responsive design, boosting UI consistency by 23%. Implemented server-side rendering and memory optimization techniques, resulting in 17% faster page loading speed.

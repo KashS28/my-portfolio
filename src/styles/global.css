@@ -882,8 +882,14 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  
   .container {
     padding: 0 var(--space-md);
+    max-width: 100%;
+    overflow-x: hidden;
   }
   
   .nav-links {
@@ -903,24 +909,54 @@ footer {
     font-size: clamp(1.3rem, 6vw, 1.8rem);
   }
   
+  /* CRITICAL: Fix skills section horizontal overflow */
+  .skills-container {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .skills-container > div:first-of-type {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-sm) !important;
+    margin-bottom: var(--space-lg) !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  
+  .skills-container .btn {
+    width: 100% !important;
+    max-width: none !important;
+    font-size: var(--font-size-sm) !important;
+    padding: var(--space-sm) var(--space-md) !important;
+    margin: var(--space-xs) 0 !important;
+    box-sizing: border-box !important;
+  }
+  
   .skills-list {
-    font-size: var(--font-size-sm);
-    gap: var(--space-xs);
-    flex-direction: column;
-    align-items: center;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-xs) !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
   
   .skill-item {
-    width: 100%;
-    max-width: 90%;
-    text-align: center;
-    font-size: var(--font-size-sm);
-    padding: var(--space-xs) var(--space-sm);
-    margin: var(--space-xs) 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    font-size: var(--font-size-sm) !important;
+    padding: var(--space-sm) var(--space-md) !important;
+    margin: var(--space-xs) 0 !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
   }
   
   .skill-separator {
-    display: none;
+    display: none !important;
   }
   
   .experience-header {
@@ -950,37 +986,27 @@ footer {
     display: none;
   }
   
-  /* Skills container buttons */
-  .skills-container > div:first-of-type {
-    flex-direction: column !important;
-    gap: var(--space-sm) !important;
-    margin-bottom: var(--space-lg) !important;
-  }
-  
-  .skills-container .btn {
-    width: 100% !important;
-    max-width: 280px !important;
-    font-size: var(--font-size-sm) !important;
-    padding: var(--space-sm) var(--space-md) !important;
-    margin: var(--space-xs) auto !important;
-  }
-  
   /* Certification cards responsive */
   .certifications-grid {
+    display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     gap: var(--space-md) !important;
+    width: 100% !important;
+    padding: 0 var(--space-sm) !important;
   }
   
   .certifications-grid > div {
-    width: 95% !important;
+    width: 100% !important;
     max-width: 350px !important;
     min-height: 320px !important;
     margin: 0 auto var(--space-md) auto !important;
+    box-sizing: border-box !important;
   }
   
   /* Social links mobile */
   .social-links {
+    display: flex !important;
     flex-direction: column !important;
     gap: var(--space-sm) !important;
     align-items: center !important;
@@ -1001,10 +1027,17 @@ footer {
 @media (max-width: 480px) {
   html {
     font-size: 14px;
+    overflow-x: hidden;
+  }
+  
+  body {
+    overflow-x: hidden;
   }
   
   .container {
     padding: 0 var(--space-sm);
+    max-width: 100vw;
+    overflow-x: hidden;
   }
   
   .hero {
@@ -1022,34 +1055,53 @@ footer {
   
   section {
     padding: var(--space-lg) 0;
+    overflow-x: hidden;
   }
   
   h2 {
     font-size: clamp(1.2rem, 6vw, 1.5rem);
   }
   
+  /* Extra small screens - ensure no horizontal scroll */
+  .skills-container {
+    width: 100%;
+    overflow-x: hidden;
+    padding: 0;
+  }
+  
   .skills-list {
-    flex-direction: column;
-    gap: var(--space-xs);
-    align-items: stretch;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-xs) !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
   }
   
   .skill-item {
-    width: 100%;
-    text-align: center;
-    font-size: var(--font-size-sm);
-    padding: var(--space-sm);
-    margin: var(--space-xs) 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    font-size: var(--font-size-sm) !important;
+    padding: var(--space-sm) !important;
+    margin: var(--space-xs) 0 !important;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
   }
   
   .skills-container .btn {
     width: 100% !important;
+    max-width: 100% !important;
     font-size: var(--font-size-sm) !important;
     padding: var(--space-sm) !important;
+    margin: var(--space-xs) 0 !important;
+    box-sizing: border-box !important;
   }
   
   .experience-item {
     padding: var(--space-sm);
+    margin-bottom: var(--space-md);
   }
   
   .experience-title {
@@ -1067,6 +1119,7 @@ footer {
   /* Certification cards very small screens */
   .certifications-grid > div {
     width: 100% !important;
+    max-width: 100% !important;
     margin: 0 0 var(--space-md) 0 !important;
     padding: var(--space-md) !important;
   }
@@ -1081,6 +1134,12 @@ footer {
   .nav-links a {
     font-size: var(--font-size-xs);
     padding: var(--space-xs) var(--space-sm);
+  }
+  
+  /* Prevent any horizontal overflow */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
 
