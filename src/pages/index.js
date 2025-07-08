@@ -164,7 +164,13 @@ export default function Home() {
               Currently building the future of intelligent systems, one algorithm at a time. Let's create something amazing together.
             </p>
 
-            <div className="social-links">
+            <div className="social-links" style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: 'var(--space-sm)',
+              fontSize: 'var(--font-size-base)'
+            }}>
               <a href="https://github.com/KashS28" target="_blank" rel="noreferrer">
                 GitHub
               </a>

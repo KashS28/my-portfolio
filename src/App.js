@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Home from "./pages/index.js";
 import Projects from "./pages/projects.js";
 import Resume from "./pages/resume.js";
@@ -12,6 +13,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/resume" element={<Resume />} />
       </Routes>
+      <SpeedInsights />
     </Router>
   );
 }
