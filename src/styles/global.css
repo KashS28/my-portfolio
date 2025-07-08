@@ -28,7 +28,7 @@
   --space-2xl: 3rem;
   
   /* Typography */
-  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-family-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
   
   --font-size-xs: 0.75rem;
@@ -83,6 +83,53 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   position: relative;
+}
+
+/* Custom Cursor - Laptop that adapts to background */
+@media (min-width: 769px) {
+  body {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23f0f6fc" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 18h20"/><circle cx="12" cy="20" r="1"/></svg>') 12 12, auto;
+  }
+
+  /* Lighter cursor for dark backgrounds */
+  .hero, 
+  .experience-item,
+  .education-item,
+  .skill-item,
+  header,
+  footer {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23f0f6fc" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 18h20"/><circle cx="12" cy="20" r="1"/></svg>') 12 12, auto;
+  }
+
+  /* Darker cursor for light/accent backgrounds */
+  .btn,
+  .skill-item:hover,
+  .experience-item:hover,
+  .education-item:hover,
+  .certification-item:hover {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23161b22" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 18h20"/><circle cx="12" cy="20" r="1"/></svg>') 12 12, auto;
+  }
+
+  /* Special cursor for interactive elements */
+  a, 
+  button,
+  .btn {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2358a6ff" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 18h20"/><circle cx="12" cy="20" r="1"/></svg>') 12 12, pointer;
+  }
+
+  /* Accent cursor for skill items and cards */
+  .skill-item,
+  .experience-item,
+  .education-item {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23f0f6fc" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 18h20"/><circle cx="12" cy="20" r="1"/></svg>') 12 12, auto;
+  }
+
+  /* Highlighted cursor on hover */
+  .skill-item:hover,
+  .experience-item:hover,
+  .education-item:hover {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2358a6ff" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 18h20"/><circle cx="12" cy="20" r="1"/></svg>') 12 12, auto;
+  }
 }
 
 /* Animated Background */
@@ -840,64 +887,200 @@ footer {
   }
   
   .nav-links {
-    gap: var(--space-md);
+    gap: var(--space-sm);
+    font-size: var(--font-size-sm);
+  }
+  
+  .nav-links li {
+    margin: 0;
   }
   
   .hero h1 {
-    font-size: clamp(2rem, 8vw, 3rem);
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
   }
   
   h2 {
-    font-size: clamp(1.5rem, 6vw, 2rem);
+    font-size: clamp(1.3rem, 6vw, 1.8rem);
   }
   
   .skills-list {
-    font-size: var(--font-size-base);
-    gap: var(--space-sm);
+    font-size: var(--font-size-sm);
+    gap: var(--space-xs);
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .skill-item {
+    width: 100%;
+    max-width: 90%;
+    text-align: center;
+    font-size: var(--font-size-sm);
+    padding: var(--space-xs) var(--space-sm);
+    margin: var(--space-xs) 0;
+  }
+  
+  .skill-separator {
+    display: none;
   }
   
   .experience-header {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .experience-item {
-    text-align: center;
-  }
-  
-  .footer-content {
-    flex-wrap: wrap;
+    align-items: flex-start;
+    text-align: left;
     gap: var(--space-sm);
   }
   
-  .certifications-grid {
-    flex-direction: column;
-    align-items: center;
+  .experience-item {
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
   }
   
-  .certification-item {
-    max-width: 100%;
+  .experience-title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: var(--space-sm);
+    font-size: var(--font-size-sm);
+    text-align: center;
+  }
+  
+  .footer-separator {
+    display: none;
+  }
+  
+  /* Skills container buttons */
+  .skills-container > div:first-of-type {
+    flex-direction: column !important;
+    gap: var(--space-sm) !important;
+    margin-bottom: var(--space-lg) !important;
+  }
+  
+  .skills-container .btn {
+    width: 100% !important;
+    max-width: 280px !important;
+    font-size: var(--font-size-sm) !important;
+    padding: var(--space-sm) var(--space-md) !important;
+    margin: var(--space-xs) auto !important;
+  }
+  
+  /* Certification cards responsive */
+  .certifications-grid {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: var(--space-md) !important;
+  }
+  
+  .certifications-grid > div {
+    width: 95% !important;
+    max-width: 350px !important;
+    min-height: 320px !important;
+    margin: 0 auto var(--space-md) auto !important;
+  }
+  
+  /* Social links mobile */
+  .social-links {
+    flex-direction: column !important;
+    gap: var(--space-sm) !important;
+    align-items: center !important;
+  }
+  
+  .social-separator {
+    display: none !important;
+  }
+  
+  .social-links a {
+    font-size: var(--font-size-base) !important;
+    padding: var(--space-sm) var(--space-lg) !important;
+    display: block !important;
+    text-align: center !important;
   }
 }
 
 @media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .container {
+    padding: 0 var(--space-sm);
+  }
+  
   .hero {
-    padding: var(--space-xl) 0;
+    padding: var(--space-lg) 0;
+  }
+  
+  .hero h1 {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+  }
+  
+  .hero p {
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
   }
   
   section {
-    padding: var(--space-xl) 0;
+    padding: var(--space-lg) 0;
+  }
+  
+  h2 {
+    font-size: clamp(1.2rem, 6vw, 1.5rem);
   }
   
   .skills-list {
     flex-direction: column;
-    gap: var(--space-sm);
+    gap: var(--space-xs);
+    align-items: stretch;
   }
   
   .skill-item {
     width: 100%;
     text-align: center;
+    font-size: var(--font-size-sm);
+    padding: var(--space-sm);
+    margin: var(--space-xs) 0;
+  }
+  
+  .skills-container .btn {
+    width: 100% !important;
+    font-size: var(--font-size-sm) !important;
+    padding: var(--space-sm) !important;
+  }
+  
+  .experience-item {
+    padding: var(--space-sm);
+  }
+  
+  .experience-title {
+    font-size: var(--font-size-base);
+  }
+  
+  .experience-company {
+    font-size: var(--font-size-sm);
+  }
+  
+  .experience-description {
+    font-size: var(--font-size-sm);
+  }
+  
+  /* Certification cards very small screens */
+  .certifications-grid > div {
+    width: 100% !important;
+    margin: 0 0 var(--space-md) 0 !important;
+    padding: var(--space-md) !important;
+  }
+  
+  /* Navigation mobile */
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-xs);
+  }
+  
+  .nav-links a {
+    font-size: var(--font-size-xs);
+    padding: var(--space-xs) var(--space-sm);
   }
 }
 

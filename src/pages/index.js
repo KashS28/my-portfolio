@@ -253,23 +253,23 @@ export default function Home() {
           <section className="education-container">
             <h2>Education</h2>
             
-            <div className="education-item">
+            <div className="education-item" style={{ maxWidth: '600px', margin: '0 auto var(--space-md) auto', padding: 'var(--space-lg)' }}>
               <div className="education-degree">MS, Electrical & Computer Engineering</div>
-              <div className="education-school">Northeastern University, Santa Clara</div>
-              <div className="education-date">2023–2025</div>
+              <div className="education-school">Northeastern University, Boston MA</div>
+              <div className="education-date">2023 – 2025</div>
               <div className="education-gpa">GPA: 3.56</div>
             </div>
 
-            <div className="education-item">
+            <div className="education-item" style={{ maxWidth: '600px', margin: '0 auto var(--space-md) auto', padding: 'var(--space-lg)' }}>
               <div className="education-degree">Graduate Certificate, MBA</div>
-              <div className="education-school">D'Amore-McKim School of Business, Northeastern</div>
+              <div className="education-school">D'Amore-McKim School of Business, Northeastern University</div>
               <div className="education-date">2025</div>
             </div>
 
-            <div className="education-item">
-              <div className="education-degree">BTech, Electronics & Telecom Engineering</div>
-              <div className="education-school">KJ Somaiya College of Engineering, Mumbai</div>
-              <div className="education-date">2019–2023</div>
+            <div className="education-item" style={{ maxWidth: '600px', margin: '0 auto var(--space-md) auto', padding: 'var(--space-lg)' }}>
+              <div className="education-degree">BTech, Electronics & Telecommunication Engineering</div>
+              <div className="education-school">University of Mumbai, Mumbai IN</div>
+              <div className="education-date">2019 – 2023</div>
               <div className="education-gpa">GPA: 3.52</div>
             </div>
           </section>
@@ -278,33 +278,35 @@ export default function Home() {
         {/* Certifications Section - Floating Layout */}
         <section style={{ padding: 'var(--space-2xl) 0' }}>
           <div className="container">
-            <h2>Key Certifications</h2>
+            <h2>Certifications</h2>
           </div>
           
           {/* Floating Layout - FULL WIDTH */}
           <div style={{ 
             width: '100vw',
             marginLeft: 'calc(-50vw + 50%)',
-            padding: 'var(--space-2xl) var(--space-lg)',
+            padding: 'var(--space-lg)',
             background: 'linear-gradient(135deg, rgba(88, 166, 255, 0.03) 0%, rgba(248, 81, 73, 0.03) 100%)'
           }}>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: 'var(--space-xl)',
-              maxWidth: '1600px',
-              margin: '0 auto',
-              alignItems: 'start'
-            }}>
-              {certifications.slice(0, 4).map((cert, index) => (
+            <div 
+              className="certifications-grid"
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                gap: 'var(--space-lg)',
+                maxWidth: '1400px',
+                margin: '0 auto'
+              }}>
+              {certifications.map((cert, index) => (
                 <div 
                   key={cert.id}
                   style={{
-                    width: '350px',
-                    minHeight: '400px',
+                    width: 'min(300px, 90vw)',
+                    minHeight: '350px',
                     background: 'var(--surface-bg)',
-                    borderRadius: 'var(--radius-xl)',
-                    padding: 'var(--space-xl)',
+                    borderRadius: 'var(--radius-lg)',
+                    padding: 'var(--space-md)',
                     border: `2px solid transparent`,
                     transition: 'all var(--transition-base)',
                     cursor: 'pointer',
@@ -326,7 +328,7 @@ export default function Home() {
                 >
                   {/* Header without icon */}
                   <div style={{
-                    marginBottom: 'var(--space-lg)'
+                    marginBottom: 'var(--space-md)'
                   }}>
                     <div style={{
                       color: cert.color,
@@ -350,9 +352,9 @@ export default function Home() {
                   {/* Content */}
                   <h4 style={{
                     color: 'var(--text-primary)',
-                    fontSize: 'var(--font-size-lg)',
+                    fontSize: 'var(--font-size-base)',
                     fontWeight: '700',
-                    marginBottom: 'var(--space-md)',
+                    marginBottom: 'var(--space-sm)',
                     lineHeight: '1.3',
                     textAlign: 'center'
                   }}>
@@ -361,9 +363,9 @@ export default function Home() {
                   
                   <div style={{
                     color: cert.color,
-                    fontSize: 'var(--font-size-base)',
+                    fontSize: 'var(--font-size-sm)',
                     fontWeight: '600',
-                    marginBottom: 'var(--space-md)',
+                    marginBottom: 'var(--space-sm)',
                     textAlign: 'center'
                   }}>
                     {cert.issuer}
@@ -371,103 +373,11 @@ export default function Home() {
                   
                   <p style={{
                     color: 'var(--text-secondary)',
-                    fontSize: 'var(--font-size-sm)',
-                    lineHeight: '1.6',
+                    fontSize: 'var(--font-size-xs)',
+                    lineHeight: '1.5',
                     margin: 0,
-                    flex: 1
-                  }}>
-                    {cert.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Second Row - 3 cards centered */}
-            <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: 'var(--space-xl)',
-              maxWidth: '1200px',
-              margin: 'var(--space-xl) auto 0 auto'
-            }}>
-              {certifications.slice(4, 7).map((cert, index) => (
-                <div 
-                  key={cert.id}
-                  style={{
-                    minHeight: '400px',
-                    background: 'var(--surface-bg)',
-                    borderRadius: 'var(--radius-xl)',
-                    padding: 'var(--space-xl)',
-                    border: `2px solid transparent`,
-                    transition: 'all var(--transition-base)',
-                    cursor: 'pointer',
-                    position: 'relative',
-                    boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
-                    display: 'flex',
-                    flexDirection: 'column'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-10px) scale(1.02)';
-                    e.currentTarget.style.borderColor = cert.color;
-                    e.currentTarget.style.boxShadow = `0 20px 60px ${cert.color}30`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                    e.currentTarget.style.borderColor = 'transparent';
-                    e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)';
-                  }}
-                >
-                  {/* Header without icon */}
-                  <div style={{
-                    marginBottom: 'var(--space-lg)'
-                  }}>
-                    <div style={{
-                      color: cert.color,
-                      fontSize: 'var(--font-size-sm)',
-                      fontWeight: '600',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.5px',
-                      marginBottom: 'var(--space-xs)'
-                    }}>
-                      {cert.category}
-                    </div>
-                    <div style={{
-                      color: 'var(--text-muted)',
-                      fontSize: 'var(--font-size-xs)',
-                      fontFamily: 'var(--font-family-mono)'
-                    }}>
-                      {cert.date}
-                    </div>
-                  </div>
-                  
-                  {/* Content */}
-                  <h4 style={{
-                    color: 'var(--text-primary)',
-                    fontSize: 'var(--font-size-lg)',
-                    fontWeight: '700',
-                    marginBottom: 'var(--space-md)',
-                    lineHeight: '1.3',
+                    flex: 1,
                     textAlign: 'center'
-                  }}>
-                    {cert.name}
-                  </h4>
-                  
-                  <div style={{
-                    color: cert.color,
-                    fontSize: 'var(--font-size-base)',
-                    fontWeight: '600',
-                    marginBottom: 'var(--space-md)',
-                    textAlign: 'center'
-                  }}>
-                    {cert.issuer}
-                  </div>
-                  
-                  <p style={{
-                    color: 'var(--text-secondary)',
-                    fontSize: 'var(--font-size-sm)',
-                    lineHeight: '1.6',
-                    margin: 0,
-                    flex: 1
                   }}>
                     {cert.description}
                   </p>
