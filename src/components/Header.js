@@ -24,7 +24,8 @@ export default function Header() {
           <ul className="nav-links">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/projects">Projects</Link></li>
-            <li><Link to="/resume">Resume</Link></li>
+            <li><Link to="/portfolio">Portfolio</Link></li>
+            <li><a href="https://linkedin.com/in/kashish-shah-2804" target="_blank" rel="noreferrer">LinkedIn</a></li>
             <li><a href="https://medium.com/@ctrlaltthrive" target="_blank" rel="noreferrer">Blog</a></li>
           </ul>
         </nav>

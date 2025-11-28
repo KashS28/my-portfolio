@@ -21,6 +21,15 @@ const skills = {
   ],
   "Cloud & DevOps": [
     "AWS", "Google Cloud", "Azure", "Lambda Functions", "EC2", "S3", "Docker", "Kubernetes", "Terraform", "GitHub Actions"
+  ],
+  "UI/UX & Design": [
+    "Figma", "Adobe XD", "Sketch", "Photoshop", "Illustrator", "Canva", "InVision", "Wireframing", "Prototyping", "User Research"
+  ],
+  "Graphic Design": [
+    "Adobe Photoshop", "Adobe Illustrator", "InDesign", "Canva", "Procreate", "Brand Identity", "Logo Design", "Social Media Graphics", "Print Design", "Typography"
+  ],
+  "Web Design": [
+    "Wix", "Webflow", "WordPress", "Responsive Design", "CSS3", "Tailwind CSS", "Bootstrap", "UI Components", "Design Systems", "Accessibility"
   ]
 };
 

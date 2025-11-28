@@ -3,7 +3,7 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
 import Home from "./pages/index.js";
 import Projects from "./pages/projects.js";
-import Resume from "./pages/resume.js";
+import Portfolio from "./pages/portfolio.js";
 import "./styles/global.css";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/resume" element={<Resume />} />
+        <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
       <SpeedInsights />
       <Analytics />
