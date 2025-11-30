@@ -75,7 +75,7 @@ export default function Projects() {
     <>
       <Header />
       <main>
-        <div className="container">
+        <div className="container" style={{ padding: "0 15%", maxWidth: "1200px", margin: "0 auto", textAlign: "center" }}>
           <section className="hero">
             <h1>Projects</h1>
             <p>A showcase of my technical projects and innovative AI/ML solutions</p>

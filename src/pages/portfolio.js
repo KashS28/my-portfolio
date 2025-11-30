@@ -152,7 +152,7 @@ export default function Portfolio() {
 
           {/* Graphic Designs Section - Full Width Tight Masonry */}
           <section id="graphic-designs" style={{ 
-            padding: 'var(--space-2xl) var(--space-md)',
+            padding: 'var(--space-2xl) 15%',
             background: 'rgba(0,0,0,0.2)'
           }}>
             <div className="container">
@@ -215,6 +215,7 @@ export default function Portfolio() {
                       <img
                         src={imagePath}
                         alt={`Design ${index + 1}`}
+                        loading="lazy"
                         style={{
                           width: '100%',
                           height: 'auto',
@@ -261,18 +262,18 @@ export default function Portfolio() {
             )}
           </section>
 
-          {/* Website Designs Section - Full Width Grid, Just Images */}
+          {/* Website Designs Section - Desktop View Always */}
           <section id="website-designs" style={{ 
-            padding: 'var(--space-2xl) var(--space-md)',
+            padding: 'var(--space-2xl) 15%',
+            background: 'rgba(0,0,0,0.1)'
           }}>
             <div className="container">
               <h2 style={{ textAlign: 'center', marginBottom: 'var(--space-xl)' }}>🌐 Website Designs</h2>
             </div>
             
             <div style={{ 
-              maxWidth: '1600px',
+              maxWidth: '1400px',
               margin: '0 auto',
-              padding: '0 var(--space-md)',
               display: 'grid', 
               gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', 
               gap: 'var(--space-md)',
@@ -305,25 +306,31 @@ export default function Portfolio() {
                     e.currentTarget.style.borderColor = 'var(--border-default)';
                   }}
                 >
-                  {/* Website iframe preview */}
+                  {/* Website desktop screenshot - ALWAYS DESKTOP */}
                   <div style={{
                     width: '100%',
                     height: '240px',
                     overflow: 'hidden',
                     position: 'relative',
+                    background: 'var(--surface-bg)'
                   }}>
-                    <iframe
-                      src={site.url}
-                      title={site.title}
+                    <img
+                      src={`https://api.screenshotone.com/take?url=${encodeURIComponent(site.url)}&viewport_width=1920&viewport_height=1080&device_scale_factor=1&format=jpg&block_ads=true&block_cookie_banners=true&block_trackers=true&cache=true&cache_ttl=2592000`}
+                      alt={site.title}
+                      loading="lazy"
                       style={{
-                        width: '1280px',
-                        height: '960px',
-                        border: 'none',
-                        transform: 'scale(0.25)',
-                        transformOrigin: '0 0',
-                        pointerEvents: 'none'
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'top left'
                       }}
-                      scrolling="no"
+                      onError={(e) => {
+                        // Fallback to iframe if screenshot fails
+                        e.target.style.display = 'none';
+                        e.target.parentElement.innerHTML += `
+                          <iframe src="${site.url}" style="width: 1920px; height: 1080px; border: none; transform: scale(0.125); transform-origin: 0 0; pointer-events: none;" scrolling="no"></iframe>
+                        `;
+                      }}
                     />
                     {/* Hover overlay with title - only shows on hover */}
                     <div style={{
@@ -481,6 +488,47 @@ export default function Portfolio() {
           </div>
         </div>
       )}
+
+      {/* Mobile Responsive Styles */}
+      <style>{`
+        @media (max-width: 768px) {
+          /* Graphics masonry - 2-3 columns on tablet */
+          #graphic-designs > div > div {
+            column-width: 180px !important;
+            column-gap: 8px !important;
+            padding: 0 12px !important;
+          }
+
+          /* Website grid - single column */
+          #website-designs > div {
+            grid-template-columns: 1fr !important;
+            max-width: 400px !important;
+            margin: 0 auto !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          /* Graphics - 2 columns on mobile (NOT 1!) */
+          #graphic-designs > div > div {
+            column-width: 150px !important;
+            column-gap: 6px !important;
+          }
+
+          /* Navigation buttons full width */
+          .hero button {
+            width: 100% !important;
+            max-width: 280px !important;
+          }
+        }
+
+        @media (max-width: 360px) {
+          /* Small phones - still 2 columns, tighter */
+          #graphic-designs > div > div {
+            column-width: 140px !important;
+            column-gap: 4px !important;
+          }
+        }
+      `}</style>
 
       <Footer />
     </>
